@@ -1,0 +1,44 @@
+<script src="https://cdn.plot.ly/plotly-2.20.0.min.js"></script> <!-- it is recommended to download this Plotly file to use offline -->
+<div id="temp"></div>
+<div id="humi"></div>
+<div id="pres"></div>
+<script>
+    //to reset data with regex
+    //find     \[\[.*\]\]
+	//replace  []
+
+    //paste data in these brackets
+    var data = [];
+
+	var times = [];
+    var temps = [];
+    var humids = [];
+    var pressures = [];
+    for (frame in data) {
+        times.push(data[frame][1] + ':' + data[frame][2] + ':' + data[frame][3])
+        temps.push(data[frame][6]);
+        humids.push(data[frame][7]);
+        pressures.push(Math.round(data[frame][8])/100);
+    }
+    var tempstrace = {
+        x: times,
+        y: temps,
+        mode: 'lines',
+        name: 'Temperature (deg C)'
+    };
+    var humidstrace = {
+        x: times,
+        y: humids,
+        mode: 'lines',
+        name: 'Humidity (%)'
+    }
+    var pressurestrace = {
+        x: times,
+        y: pressures,
+        mode: 'lines',
+        name: 'Pressure (hPa)'
+    }
+    Plotly.newPlot('temp', [tempstrace], {title:'Temperature (deg C)'});
+    Plotly.newPlot('humi', [humidstrace], {title:'Humidity (%)'});
+    Plotly.newPlot('pres', [pressurestrace], {title:'Pressure (hPa)'});
+</script>
