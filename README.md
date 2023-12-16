@@ -1,6 +1,8 @@
 # WXLogs
 Logs from weather research project deployments and processing software
 
+All logs are collected as apart of the AMMETS project led by SSWA.TV. [Learn More](https://sswa.tv/project/ammets/)
+
 ## Rabbit 1
 > GPS, Temperature, Humidity, Pressure
 ### Format
