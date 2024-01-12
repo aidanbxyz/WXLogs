@@ -30,6 +30,8 @@ t = temperature    (deg C)
 h = humidity       (percent)
 p = pressure       (Pa)
 ```
+and any lines starting with "#" are ignored.
+
 
 ### cleandata.py
 A script for Python 3 to clean up the data files. 

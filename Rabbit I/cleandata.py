@@ -7,6 +7,8 @@ liveline = ''
 firstline = True
 logfile = open(logname + '.clean.log', 'a')
 for line in lines:
+    if line[0] == "#": # check for comment
+        continue
     oldline = liveline
     liveline = line.replace('[', '').replace(']', '').replace(',\n', '').split(',')
     if liveline == ['f', 'da', 'db', 'dc', 'ga', 'go', 't', 'h', 'p']: # checks for signal
