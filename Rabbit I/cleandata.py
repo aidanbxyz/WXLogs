@@ -1,13 +1,22 @@
-logname = input('Log file: ')
-logfile = open(logname, 'r')
+import sys
+if len(sys.argv) > 1:
+    logname = sys.argv[1] # check for filename passed as argument
+else:                     # if not, ask for a file name
+    print('(can also be used "python3 cleandata.py filename.log")')
+    logname = input('Log file: ')
+try:
+    logfile = open(logname, 'r')
+except:
+    print('Error opening input file..Exiting cleanly')
+    sys.exit()
 lines = logfile.readlines()
 logfile.close()
 oldline = ''
 liveline = ''
 firstline = True
-logfile = open(logname + '.clean.log', 'a')
-for line in lines:
-    if line[0] == "#": # check for comment
+logfile = open(logname + '.clean.log', 'a') # load the log file
+for line in lines: # loop over each line in the file
+    if line[0] == "#": # check if line is a comment
         continue
     oldline = liveline
     liveline = line.replace('[', '').replace(']', '').replace(',\n', '').split(',')
@@ -26,5 +35,5 @@ for line in lines:
         firstline = False
     else:
         logfile.write(',[' + ','.join(liveline) + ']')
-logfile.close()
+logfile.close() # closes the file
 print('Saved as ' + logname + '.clean.log')

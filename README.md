@@ -3,41 +3,31 @@ Logs from weather research project deployments and processing software
 
 All logs are collected as apart of the AMMETS project led by SSWA.TV. [Learn More](https://sswa.tv/projects/ammets/)
 
-## Rabbit 1
-> GPS, Temperature, Humidity, Pressure
-### Format
-**ALL DATES AND TIMES ARE IN UTC**
+Each sensor folder contains an additional README.md with more information.
 
-Rabbit 1 logs are named in the format `YYYY-MM-DD HHMMSS-HHMMSS` where the date is the start date of the log and the time can go into the next day.
+### Changelog
 
-Data is in the format
+Newest to Oldest
+
 ```
-[f,da,db,dc,ga,go,t,h,p],
-[f,da,db,dc,ga,go,t,h,p],
-...snip...
-[f,da,db,dc,ga,go,t,h,p],
-[f,da,db,dc,ga,go,t,h,p]
+Feb 06, 2024 - Rearrangements
+Update cleandata.py to allow passing log files as command line arguments, move Rabbit I spec to dedicated README, add folder and README for balloon data, changed file naming to remove spaces
+
+Jan 12, 2024 - Added comments to format
+Added allowing comment lines with a "#", added headers to log files, added comment linking to WXLogs on plot.html
+
+Dec 15, 2023 - Update README.md
+Correct spelling in link
+
+Dec 15, 2023 - Update README.md
+Added AMMETS project link
+
+Dec 15, 2023 - Update README.md
+Format and cleandata.py specificaion
+
+Dec 15, 2023 - Add some R1 logs
+Added 2023-08-12, 2023-08-13 logs, plot.html
+
+Dec 15, 2023 - Initial commit
+Added readme, license
 ```
-where
-```
-f = frequency      (MHz)
-da = hour          (HH or H)
-db = minute        (MM or M)
-bc = second        (SS or S)
-ga = gps latitude  (DDMM.MMMM)
-go = gps longitude (DDMM.MMMM)
-t = temperature    (deg C)
-h = humidity       (percent)
-p = pressure       (Pa)
-```
-and any lines starting with "#" are ignored.
-
-
-### cleandata.py
-A script for Python 3 to clean up the data files. 
-
-Removes headers and fills in gaps.
-
-Outputs file as `<logfile>.clean.log` to be pasted into plot.
-
-Usage: `python cleandata.py` then enter the file name.
