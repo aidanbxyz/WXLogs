@@ -10,6 +10,9 @@ Each sensor folder contains an additional README.md with more information.
 Newest to Oldest
 
 ```
+Feb 06, 2024 - Add links, profile
+Add atmos profile, set up system to sort and link to data files
+
 Feb 06, 2024 - Rearrangements
 Update cleandata.py to allow passing log files as command line arguments, move Rabbit I spec to dedicated README, add folder and README for balloon data, changed file naming to remove spaces
 
