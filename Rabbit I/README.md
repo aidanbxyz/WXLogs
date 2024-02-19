@@ -1,5 +1,7 @@
 # Rabbit 1
 > GPS, Temperature, Humidity, Pressure
+
+[More Information](https://sswa.tv/projects/ammets/)
 ## Format
 **ALL DATES AND TIMES ARE IN UTC**
 
@@ -20,7 +22,7 @@ da = hour          (HH or H)
 db = minute        (MM or M)
 bc = second        (SS or S)
 ga = gps latitude  (DDMM.MMMM)
-go = gps longitude (DDMM.MMMM)
+go = gps longitude (-DDMM.MMMM) <-- eg: log says 9845.9258 => is really -9845.9258
 t = temperature    (deg C)
 h = humidity       (percent)
 p = pressure       (Pa)
@@ -29,10 +31,10 @@ and any lines starting with "#" are ignored.
 
 
 ## cleandata.py
-A script for Python 3 to clean up the data files. 
+A script for Python 3 to clean up Rabbit's data files.
 
-Removes headers and fills in gaps.
+Removes headers and fills in gaps in data.
 
-Outputs file as `<logfile>.clean.log` to be pasted into plot.
+Outputs file as `<logfile>.clean.log` to be pasted into plot.html.
 
-Usage: `python cleandata.py logfile.log` or `python cleandata.py` then enter the file name.
+Usage: `python3 cleandata.py logfile.log` or `python3 cleandata.py` then enter the file name when prompted.

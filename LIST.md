@@ -1,3 +1,13 @@
+#### Rabbit
+Processing: [cleandata.py](/Rabbit%20I/cleandata.py)
+
+Plotting: [plot.html](/Rabbit%20I/plot/plot.html)
+
+#### Balloon
+Processing: Pre-processed
+
+Plotting: Any sounding plotter, eg [SHARPpy](https://sharp.weather.ou.edu/dev/)
+
 # File listing
 
 Oldest to Newest

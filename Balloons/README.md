@@ -1,5 +1,7 @@
 # Balloons
 > Payload is launch dependent
+
+[More Information](https://sswa.tv/projects/balloon/)
 ## Format
 **ALL DATES AND TIMES ARE IN UTC**
 
@@ -8,10 +10,10 @@ Balloon logs are named in the format `Atmos_YYYY-MM-DD_HHMM.log` where the date 
 Meteorological data is in tabular format, as used by the NWS:
 ```
 %TITLE%
- SSWA YYMMDD/HHMM
+ SSWA YYMMDD/HHMM lat,lon
 
 %RAW%
- LEVEL, HEIGHT, TEMP, DEWPOINT, WINDDIR, WINDSPEED
+ LEVEL (mb), HEIGHT (m), TEMP (C), DEWPOINT (C), WINDDIR (deg), WINDSPEED (kt)
  ...snip...
 %END%
 ```

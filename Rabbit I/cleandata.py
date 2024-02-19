@@ -6,7 +6,7 @@ else:                     # if not, ask for a file name
     logname = input('Log file: ')
 try:
     logfile = open(logname, 'r')
-except:
+except:  # check for errors (such as nonexistent file)
     print('Error opening input file..Exiting cleanly')
     sys.exit()
 lines = logfile.readlines()
@@ -19,21 +19,23 @@ for line in lines: # loop over each line in the file
     if line[0] == "#": # check if line is a comment
         continue
     oldline = liveline
-    liveline = line.replace('[', '').replace(']', '').replace(',\n', '').split(',')
+    liveline = line.replace('[', '').replace(']', '').replace(',\n', '').split(',') # removes brackets and newlines, splits line into array
     if liveline == ['f', 'da', 'db', 'dc', 'ga', 'go', 't', 'h', 'p']: # checks for signal
-        continue
+        continue                                                       # continue if none
     for i in range(9): # fills in gaps in data
         try:
             liveline[i] = float(liveline[i])
-        except:
+        except: # if there are any errors converting to float, use previous previous data point
             liveline[i] = oldline[i]
         liveline[i] = str(liveline[i])
-    if liveline[4] == "0.0": # Checks for GPS lock
-        continue
+    if liveline[4] == "0.0": # checks for GPS lock
+        continue             # continue if none
     if firstline:
-        logfile.write('[' + ','.join(liveline) + ']')
+        logfile.write('[' + ','.join(liveline) + ']') # no comma needed before the first line
         firstline = False
     else:
-        logfile.write(',[' + ','.join(liveline) + ']')
+        logfile.write(',')   # by default, this program outputs data as one line for use with plot.html
+        #logfile.write('\n') # <-- Uncomment this line to output each line seperately
+        logfile.write('[' + ','.join(liveline) + ']')
 logfile.close() # closes the file
 print('Saved as ' + logname + '.clean.log')
