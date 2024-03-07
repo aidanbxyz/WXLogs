@@ -1,5 +1,7 @@
 # WXLogs
-Logs from weather research project deployments and processing software
+Logs from weather research project deployments and processing software.
+
+[![DOI](https://zenodo.org/badge/732169214.svg)](https://zenodo.org/doi/10.5281/zenodo.10791459)
 
 All logs are collected as apart of the AMMETS project led by SSWA.TV. [Learn More](https://sswa.tv/projects/ammets/)
 
